@@ -178,6 +178,9 @@ main
     border-radius: 20px;
     width: 400px;
     height: 400px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 #addCom p
