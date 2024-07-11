@@ -8,7 +8,7 @@
 
 body
 {
-    background-color: #FFFFEC;
+    background-color: #F1E4C3;
     color: #597E52;
     font-family: "Grandstander";
     text-align: center;
@@ -36,7 +36,7 @@ nav
     font-size: 22px;
     margin-top: -30px;
     padding-bottom: 18px;
-    border-bottom: solid 5px #597E52;
+    border-bottom: solid 3px #597E52;
 }
 
 .commenting
@@ -57,17 +57,24 @@ nav
 
 main
 {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-wrap: wrap;
     width: 100%;
     padding: 20px;
     margin-top: 30px;
 }
 
-.comments, article
+.main
 {
-    background-color: #F1E4C3;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px; 
+}
+
+
+.comments, .sub
+{
+    background-color: #FFFFEC;
     border-radius: 20px;
     padding: 30px;
 }
@@ -99,7 +106,7 @@ main
     font-weight: 600;
 }
 
-article
+.sub
 {
     margin: 0 auto;
     width: 70%;
@@ -223,14 +230,14 @@ textarea
 
 #madeby
 {
-    border-top: solid 5px #597E52;
+    border-top: solid 3px #597E52;
     width: 95%;
     margin-top: auto;
     padding: 10px;
     letter-spacing: 2px;
-    position: fixed;
+    position: f;
     bottom: 0;
-    background-color: #FFFFEC;
+    background-color: #F1E4C3;
 }
 
 
@@ -275,7 +282,7 @@ textarea
 
 @media(max-width: 768px){
 
-    article
+    .sub
     {
         width: 100%;
     }
