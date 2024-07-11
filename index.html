@@ -13,39 +13,39 @@
     <!--Template - you can delete that-->
     <article class="main">
         <article class="sub">
-            <p class="date">YYYY-MM-DD</p>
-            <header class="title"><h2>-Your title-</h2></header>
-            <p class="author">Your name/nickname</p>
-            <div class="content"><p>Here goes your text. You can tell us about your yesterday's trip to local cinema or you can describe your favourite book :D</p><p>Feel free to share your thoughts!</p></div>
+            <p class="date" aria-label="Date of creation of the article">YYYY-MM-DD</p>
+            <header class="title" aria-label="Title of the article"><h2>-Your title-</h2></header>
+            <p class="author" aria-label="Author of the article">Your name/nickname</p>
+            <div class="content" aria-label="Content"><p>Here goes your text. You can tell us about your yesterday's trip to local cinema or you can describe your favourite book :D</p><p>Feel free to share your thoughts!</p></div>
             <footer class="bottomContent">
-                <section class="tags">
+                <section class="tags" aria-label="Tags">
                     <ul>
                         <li>excellent</li>
                         <li>interesting</li>
                         <li>tags</li>
                     </ul>
-                    <button type="button" class="commenting">Add your comment</button>
+                    <button type="button" class="commenting" aria-label="Comment">Add your comment</button>
                 </section>
             </footer>
         </article>
-        <aside class="comments">
+        <aside class="comments" aria-label="Comments">
             <p class="author">Comments</p>
             <ul>
                 <li>
-                    <p class="author">AuthorOfComment</p>
-                    <p class="comment">His comment</p>
+                    <p class="author" aria-label="Comment author">AuthorOfComment</p>
+                    <p class="comment" aria-label="His comment">His comment</p>
                 </li>
                 <li>
-                    <p class="author">Jelly</p>
-                    <p class="comment">Hi there</p>
+                    <p class="author" aria-label="Comment author">Jelly</p>
+                    <p class="comment" aria-label="His comment">Hi there</p>
                 </li>
                 <li>
-                    <p class="author">Your_fan48</p>
-                    <p class="comment">I love you!</p>
+                    <p class="author" aria-label="Comment author">Your_fan48</p>
+                    <p class="comment" aria-label="His comment">I love you!</p>
                 </li>
                 <li>
-                    <p class="author">Coffe_Guy</p>
-                    <p class="comment">I like coffe</p>
+                    <p class="author" aria-label="Comment author">Coffe_Guy</p>
+                    <p class="comment" aria-label="His comment">I like coffe</p>
                 </li>    
             </ul>
         </aside>
@@ -54,16 +54,16 @@
     </main>
     <article id="addComBack">
         <section id="addCom">
-            <span class="close" id="close">&times;</span>
-            <p>Your comment</p>
+            <span class="close" id="close" aria-label="Close button">&times;</span>
+            <p aria-label="Add your comment">Your comment</p>
             <form id="comment-form">
-                <textarea id="comment" name="comment" required></textarea>
-                <input type="text" id="username" name="username" placeholder="Your name/nickname" required>
-                <button type="submit">Submit</button>
+                <textarea id="comment" name="comment" required aria-label="Your comment"></textarea>
+                <input type="text" id="username" name="username" placeholder="Your name/nickname" required aria-label="Your name or nickname">
+                <button type="submit" aria-label="Submit">Submit</button>
             </form>
         </section>
     </article>
-    <footer id="madeby">-Kacper Twardowski | 2024-</footer>
+    <footer id="madeby" aria-label="Website author">-Kacper Twardowski | 2024-</footer>
     <script src="script.js"></script>
 </body>
 </html>
