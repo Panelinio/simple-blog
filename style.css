@@ -85,7 +85,7 @@ main
     overflow: auto;
     height: 400px;
     word-wrap:break-word;
-    
+    line-height: 150%;
 }
 
 .comments ul
