@@ -59,7 +59,7 @@
             <p class="author">Comments</p>
             <ul>
                 <li>
-                    <p class="author" aria-label="Comment author">AuthorOfComment</p>
+                    <p class="author" aria-label="Comment author">Author</p>
                     <p class="comment" aria-label="His comment">His comment</p>
                 </li>
                 <li>

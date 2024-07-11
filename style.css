@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Lemonada:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Grandstander:ital,wght@0,100..900;1,100..900&family=Lemonada:wght@300..700&display=swap');
 
 * {
@@ -19,6 +17,8 @@ body
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: clamp(10px, 9px + 0.7cqw, 18px);
+    container: blocks / inline-size;
 }
 
 #blog
@@ -48,7 +48,7 @@ nav
     border: rgba(0, 0, 0, 0);
     border-radius: 5px;
     font-weight: 600;
-    font-size: 20px;
+    font-size: clamp(10px, 20px + 0.7cqw, 18px);
     cursor: pointer;
     padding: 10px;
     width: 40%;
@@ -80,10 +80,12 @@ main
 
 .comments
 {
-    width: 20%;
+    width: 22%;
     margin: 30px;
     overflow: auto;
     height: 400px;
+    word-wrap:break-word;
+    
 }
 
 .comments ul
@@ -108,7 +110,7 @@ main
 .sub
 {
     margin: 0 auto;
-    width: 70%;
+    width: 68%;
     min-height: 500px;
 }
 
@@ -285,7 +287,7 @@ textarea
     background: #F1E4C3 !important;
 }
 
-@media(max-width: 768px){
+@container blocks (max-width: 768px){
 
     .sub
     {
@@ -303,5 +305,9 @@ textarea
     main
     {
         flex-wrap: wrap;
+    }
+    .date
+    {
+        width:30%;
     }
 }
