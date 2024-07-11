@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple blog</title>
     <link rel="stylesheet" href=style.css>
-</head><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple blog</title>
-    <link rel="stylesheet" href=style.css>
 </head>
 <body>
     <header id="blog"><h1>Simple blog</h1></header>
@@ -23,27 +16,27 @@
         $stmt = $pdo->query("SELECT * FROM articles ORDER BY created_at DESC");
         while ($row = $stmt->fetch()) {
             echo '<article class="main"><article class="sub"><p class="date">'. htmlspecialchars($row['created_at']) .'</p><header class="title"><h2>-' . htmlspecialchars($row['title']) . '-</h2></header>';
-            echo '<p class="author"></p>';
+            echo '<p class="author">'. htmlspecialchars($row['author']) .'</p>';
             echo '<div class="content">' . nl2br(htmlspecialchars($row['content'])) . "</div>";
-            echo '<footer class="bottomContent"><section class="tags"><ul><li></li></ul><button type="button" class="commenting">Add your comment</button></section></footer>';
-            echo '</article>';
+            echo '<footer class="bottomContent">
+            <section class="tags">
+                <ul>
+                    <li>Tag</li>
+                </ul>
+                <button type="button" class="commenting">Add your comment</button>
+            </section></footer></article>';
             echo '<aside class="comments">
             <p class="author">Comments</p>
             <ul>
-                <li><p class="author">Żelek</p>
-                    <p class="comment">Elo żelo</p>
-                </li>
-                <li><p class="author">Żelek</p>
-                    <p class="comment">Elo żelo</p>
-                </li>
-                <li><p class="author">Żelek</p>
-                    <p class="comment">Elo żelo</p>
-                </li>    
+                <li><p class="author">Author</p>
+                    <p class="comment">Comment</p>
+                </li>   
             </ul>
-        </aside>';
-            echo '</article>';
+            </aside>
+            </article>';
         }
     ?>
+    <!--Template - you can delete that-->
     <article class="main">
         <article class="sub">
             <p class="date">YYYY-MM-DD</p>
@@ -75,10 +68,15 @@
                 <li>
                     <p class="author">Your_fan48</p>
                     <p class="comment">I love you!</p>
+                </li>
+                <li>
+                    <p class="author">Coffe_Guy</p>
+                    <p class="comment">I like coffe</p>
                 </li>    
             </ul>
         </aside>
     </article>
+    <!--Template - you can delete that-->
     </main>
     <article id="addComBack">
         <section id="addCom">
