@@ -35,7 +35,7 @@ nav
     display: flex;
     font-size: 22px;
     margin-top: -30px;
-    padding-bottom: 18px;
+    padding-bottom: 15px;
     border-bottom: solid 3px #597E52;
 }
 
@@ -60,7 +60,6 @@ main
     flex-wrap: wrap;
     width: 100%;
     padding: 20px;
-    margin-top: 30px;
 }
 
 .main
@@ -68,7 +67,6 @@ main
     display: flex;
     width: 100%;
     padding: 20px;
-    margin-top: 30px; 
 }
 
 
@@ -111,6 +109,12 @@ main
     margin: 0 auto;
     width: 70%;
     min-height: 500px;
+}
+
+.date
+{
+    display: flex;
+    width: 20%;
 }
 
 .title

@@ -1,5 +1,5 @@
 # SIMPLE-BLOG
-Project where I focused on simplicity - 
+Template for a blog where simplicity is most value :D 
 
 ## Table of contents
 * [Technologies](#technologies)
@@ -16,7 +16,7 @@ Project is created with:
 	
 ## Setup
 To run this project you need MySQL server program - like [XAMPP](https://www.apachefriends.org/).
-After instalation clone repo and insert it in `C:/Your/path/to/xampp/htdocs`. After that run your local server and type `http://localhost/name_of_project_directory/` in your browser :D
+After instalation clone repo and insert it in C:/Your/path/to/xampp/htdocs. After that run your local server and type http://localhost/name_of_project_directory/ in your browser :D
 
 ## Features
 * Adding articles
@@ -26,5 +26,4 @@ After instalation clone repo and insert it in `C:/Your/path/to/xampp/htdocs`. Af
 ## Sources
 What helped me:
 * [Pasja Informatyki](https://forum.pasja-informatyki.pl/)
-
-* Chat-GPT - kinda...
+* Chat-GPT - reworking my config for PHP
