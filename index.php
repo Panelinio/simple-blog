@@ -12,26 +12,73 @@
     <main>
     <?php
         require 'config.php';
-        $stmt = $pdo->query("SELECT * FROM articles, tags, comments WHERE articles.id = tags.article_id AND articles.id = comments.article_id ORDER BY articles.created_at DESC");
-        while ($row = $stmt->fetch()) {
-            echo '<article class="main"><article class="sub"><p class="date" aria-label="Date of creation of the article">'.htmlspecialchars(date('d.m.Y', strtotime($row['created_at']))).
-            '</p><header class="title" aria-label="Title of the article"><h2>-'.htmlspecialchars($row['title']).'-</h2></header>';
-            echo '<p class="author" aria-label="Author of the article">'.htmlspecialchars($row['author']).'</p>';
-            echo '<div class="content" aria-label="Content">'.nl2br(htmlspecialchars($row['content']))."</div>";
-            echo '<footer class="bottomContent">
-            <section class="tags" aria-label="Tags">
-                <ul><li>'.htmlspecialchars($row['name']).'</li></ul>
-                <button type="button" class="commenting" aria-label="Comment">Add your comment</button>
-            </section></footer></article>';
-            echo '<aside class="comments">
-            <p class="author" aria-label="Comments">Comments</p>
-            <ul>
-                <li><p class="author" aria-label="Comment author">'.htmlspecialchars($row['com_author']).'</p>
-                    <p class="comment" aria-label="His comment">'.htmlspecialchars($row['comment']).'</p>
-                </li>   
-            </ul>
-            </aside>
-            </article>';
+        $sql = "
+        SELECT 
+            a.id as article_id, 
+            a.title, 
+            a.content, 
+            a.author, 
+            a.created_at as article_created_at,
+            t.id as tag_id,
+            t.name as tag_name,
+            c.id as comment_id,
+            c.com_author,
+            c.comment
+        FROM articles a LEFT JOIN tags t ON a.id = t.article_id LEFT JOIN comments c ON a.id = c.article_id ORDER BY a.created_at DESC, t.id";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $articles = [];
+        foreach ($results as $row) 
+        {
+            $article_id = $row['article_id'];
+            if (!isset($articles[$article_id])) 
+            {
+                $articles[$article_id] = [
+                    'title' => $row['title'],
+                    'content' => $row['content'],
+                    'author' => $row['author'],
+                    'created_at' => $row['article_created_at'],
+                    'tags' => [],
+                    'comments' => []
+                ];
+            }
+
+            if ($row['tag_id']) 
+            {
+                $articles[$article_id]['tags'][$row['tag_id']] = $row['tag_name'];
+            }
+
+            if ($row['comment_id']) 
+            {
+                $articles[$article_id]['comments'][$row['comment_id']] = [
+                    'com_author' => $row['com_author'],
+                    'comment' => $row['comment'],
+                ];
+            }
+        }
+
+        foreach ($articles as $article) 
+        {
+            echo '<article class="main"><article class="sub"><p class="date" aria-label="Date of creation of the article">'.htmlspecialchars(date('d.m.Y', strtotime($article['created_at']))).'</p>';
+            echo '<header class="title" aria-label="Title of the article"><h2>-'.htmlspecialchars($article['title']).'-</h2></header>';
+            echo '<p class="author" aria-label="Author of the article">'.htmlspecialchars($article['author']).'</p>';
+            echo '<div class="content" aria-label="Content">'.nl2br(htmlspecialchars($article['content'])).'</div>';
+            echo '<footer class="bottomContent"><section class="tags" aria-label="Tags"><ul>';
+            foreach ($article['tags'] as $tag) 
+            {
+                echo '<li>'.htmlspecialchars($tag).'</li>';
+            }
+            echo '</ul><button type="button" class="commenting" aria-label="Comment">Add your comment</button>';
+            echo '</section></footer></article><aside class="comments"><p class="author" aria-label="Comments">Comments</p><ul>';
+            foreach ($article['comments'] as $comment) 
+            {
+                echo '<li><p class="author" aria-label="Comment author">'.htmlspecialchars($comment['com_author']).'</p>';
+                echo '<p class="comment" aria-label="His comment">'.htmlspecialchars($comment['comment']).'</p></li>';
+            }
+            echo '</ul></aside></article>';
         }
     ?>
     <!--Template - you can delete that-->
