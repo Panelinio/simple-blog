@@ -15,9 +15,9 @@
 </head>
 <body>
 <form action="save_article.php" method="post">
-    <label for="title">Tytuł:</label>
+    <label for="title">Title:</label>
     <input type="text" id="title" name="title" required><br>
-    <label for="content">Treść:</label>
+    <label for="content">Content:</label>
     <textarea id="content" name="content" required></textarea><br>
     <input type="submit" value="Dodaj artykuł">
 </form>
